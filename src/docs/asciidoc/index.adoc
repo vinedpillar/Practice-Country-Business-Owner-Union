@@ -1,0 +1,29 @@
+= 전국 사업자 연합회
+:sectnums:
+:toc: left
+:toclevels: 4
+:toc-title: Table of Contents
+:source-highlighter: prettify
+
+Hong gil dong <hgd@codestates.com>
+
+v1.0.0, 2022.08.17
+
+***
+== MemberController
+=== 회원 조회
+
+.curl-request
+include::{snippets}/get-member/curl-request.adoc[]
+
+.http-request
+include::{snippets}/get-member/http-request.adoc[]
+
+.http-response
+include::{snippets}/get-member/request-response.adoc[]
+
+.http-request
+include::{snippets}/get-member/request-request.adoc[]
+**`***`*
+.response-fields
+include::{snippets}/get-member/response-fields.adoc[]

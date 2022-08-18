@@ -17,14 +17,14 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
 
-    @Column(nullable = false, updatable = false, unique = true)
+    @Column(nullable = false, updatable = false)
     private String userId;
 
     @Column(length = 100, nullable = false)
     private String name;
 
-    @Column(length = 1, nullable = false, unique = true)
-    private char gender;
+    @Column(length = 1, nullable = false)
+    private String gender;
 
     @Column(length = 100, nullable = false)
     private String companyName;
@@ -37,9 +37,5 @@ public class Member {
 
     @Column(nullable = false)
     private int companyLocationId;
-
-    @Enumerated(value = EnumType.STRING)
-    @Column(length = 20, nullable = false)
-    private MemberStatus memberStatus = MemberStatus.MEMBER_ACTIVE;
 
 }

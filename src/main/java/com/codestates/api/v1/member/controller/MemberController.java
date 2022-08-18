@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/members")
 @Validated
-@Slf4j
+// @Slf4j
 public class MemberController {
     private final MemberService memberService;
     private final MemberMapper mapper;
@@ -30,6 +30,7 @@ public class MemberController {
         this.mapper = mapper;
     }
 
+    /*
     @PostMapping
     public ResponseEntity postMember(MemberDto.Post requestBody) {
         Member member = mapper.memberPostToMember(requestBody);
@@ -38,7 +39,9 @@ public class MemberController {
 
         return new ResponseEntity<>(new SingleResponseDto<>(response), HttpStatus.CREATED);
     }
+    */
 
+    /*
     @PatchMapping("/{member-id}")
     public ResponseEntity patchMember(@PathVariable("member-id") @Positive long memberId,
                                       @Valid @RequestBody MemberDto.Patch requestBody) {
@@ -48,11 +51,21 @@ public class MemberController {
         return new ResponseEntity<>(
                 new SingleResponseDto<>(mapper.memberToMemberResponse(member)), HttpStatus.OK);
     }
+    */
+
+    @PostMapping
+    public ResponseEntity postMember(@RequestBody MemberDto.Post requestBody) {
+        Member member = mapper.memberPostToMember(requestBody);
+
+        Member createMember = memberService.createMember(member);
+        MemberDto.Response response = mapper.memberToMemberResponse(createMember);
+
+        return new ResponseEntity<>(new SingleResponseDto<>(response), HttpStatus.CREATED);
+    }
 
     @GetMapping("/{member-id}")
-    public ResponseEntity getMember(@PathVariable("member-id") @Positive long memberId) {
+    public ResponseEntity getMember(@PathVariable("member-id") long memberId) {
         Member member = memberService.findMember(memberId);
-
         return new ResponseEntity<>(
                 new SingleResponseDto<>(mapper.memberToMemberResponse(member)), HttpStatus.OK);
     }
@@ -62,15 +75,18 @@ public class MemberController {
                                      @Positive @RequestParam int size) {
         Page<Member> pageMembers = memberService.findMembers(page - 1, size);
         List<Member> members = pageMembers.getContent();
-
         return new ResponseEntity<>(
-                new MultiResponseDto<>(mapper.membersToMemberResponses(members), pageMembers), HttpStatus.OK);
+                new MultiResponseDto<>(mapper.membersToMemberResponses(members),
+                        pageMembers),
+                HttpStatus.OK);
     }
 
+    /*
     @DeleteMapping("/{member-id}")
     public ResponseEntity deleteMember(@PathVariable("member-id") @Positive long memberId) {
         memberService.deleteMember(memberId);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    */
 }

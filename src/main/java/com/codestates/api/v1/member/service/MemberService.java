@@ -20,25 +20,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-@Transactional
 @Service
 public class MemberService {
     private final MemberRepository memberRepository;
-    private final ApplicationEventPublisher publisher;
 
-    public MemberService(MemberRepository memberRepository, ApplicationEventPublisher publisher) {
+    public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
-        this.publisher = publisher;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE)
     public Member createMember(Member member) {
         Member savedMember = memberRepository.save(member);
-
-        publisher.publishEvent(new MemberRegistrationApplicationEvent(this, savedMember));
         return savedMember;
     }
 
+
+    /*
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.SERIALIZABLE)
     public Member updateMember(Member member) {
         Member findMember = findVerifiedMember(member.getMemberId());
@@ -60,8 +58,8 @@ public class MemberService {
 
         return memberRepository.save(findMember);
     }
+    */
 
-    @Transactional(readOnly = true)
     public Member findMember(long memberId) {
         return findVerifiedMember(memberId);
     }
@@ -71,13 +69,14 @@ public class MemberService {
                 Sort.by("memberId").descending()));
     }
 
+    /*
     public void deleteMember(long memberId) {
         Member findMember = findVerifiedMember(memberId);
 
         memberRepository.delete(findMember);
     }
+    */
 
-    @Transactional(readOnly = true)
     public Member findVerifiedMember(long memberId) {
         Optional<Member> optionalMember =
                 memberRepository.findById(memberId);

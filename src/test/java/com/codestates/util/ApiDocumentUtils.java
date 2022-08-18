@@ -7,13 +7,12 @@ import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 
 public interface ApiDocumentUtils {
-    public interface ApiDocumentUtils {
-        static OperationRequestPreprocessor getRequestPreProcessor() {
-            return preprocessRequest(prettyPrint());
-        }
+    static OperationRequestPreprocessor getRequestPreProcessor() {
+        return preprocessRequest(prettyPrint());
+    }
 
-        static OperationResponsePreprocessor getResponsePreProcessor() {
+    static OperationResponsePreprocessor getResponsePreProcessor() {
             return preprocessResponse(prettyPrint());
-        }
     }
 }
+
