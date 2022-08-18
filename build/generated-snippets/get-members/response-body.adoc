@@ -1,0 +1,30 @@
+[source,options="nowrap"]
+----
+{
+  "data" : [ {
+    "memberId" : 1,
+    "userId" : "hgd1443",
+    "name" : "홍길동",
+    "gender" : "M",
+    "companyName" : "홀길동 컴퍼니",
+    "companyRegistrationNumber" : "314-12-45321",
+    "companyTypeId" : 1,
+    "companyLocationId" : 1
+  }, {
+    "memberId" : 2,
+    "userId" : "gur1443",
+    "name" : "고을노",
+    "gender" : "F",
+    "companyName" : "고을노 컴퍼니",
+    "companyRegistrationNumber" : "432-12-32113",
+    "companyTypeId" : 2,
+    "companyLocationId" : 2
+  } ],
+  "pageInfo" : {
+    "page" : 1,
+    "size" : 2,
+    "totalElements" : 2,
+    "totalPages" : 1
+  }
+}
+----

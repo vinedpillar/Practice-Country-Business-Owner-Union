@@ -1,0 +1,40 @@
+|===
+|Path|Type|Description
+
+|`+data+`
+|`+Object+`
+|결과 데이터
+
+|`+data.memberId+`
+|`+Number+`
+|회원 식별자
+
+|`+data.userId+`
+|`+String+`
+|아이디
+
+|`+data.name+`
+|`+String+`
+|이름
+
+|`+data.gender+`
+|`+String+`
+|성별
+
+|`+data.companyName+`
+|`+String+`
+|회사 이름
+
+|`+data.companyRegistrationNumber+`
+|`+String+`
+|사업자등록번호
+
+|`+data.companyTypeId+`
+|`+Number+`
+|회사 분류
+
+|`+data.companyLocationId+`
+|`+Number+`
+|회사 위치 번호
+
+|===

@@ -1,0 +1,15 @@
+[source,options="nowrap"]
+----
+{
+  "data" : {
+    "memberId" : 1,
+    "userId" : "hgd1443",
+    "name" : "홍길동",
+    "gender" : "M",
+    "companyName" : "홀길동 컴퍼니",
+    "companyRegistrationNumber" : "314-12-435321",
+    "companyTypeId" : 1,
+    "companyLocationId" : 1
+  }
+}
+----
